@@ -16,7 +16,7 @@ public class BankingManagementController {
 	@RequestMapping(method = RequestMethod.POST, consumes = "application/json")
 	public ResponseEntity<User> login(@RequestBody User newCourse) {
 		System.out.println("Inside Controller....");
-		return new ResponseEntity<>(newCourse, HttpStatus.CREATED);
+		return new ResponseEntity<>(newCourse, HttpStatus.OK);
 	}
 
 	
