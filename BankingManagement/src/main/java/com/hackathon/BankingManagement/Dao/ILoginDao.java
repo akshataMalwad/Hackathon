@@ -2,11 +2,11 @@ package com.hackathon.BankingManagement.Dao;
 
 import java.util.List;
 
-import com.hackathon.BankingManagement.Pojo.User;
+import com.hackathon.BankingManagement.Pojo.Register;
 
 public interface ILoginDao {
 
-	User getPersonByUserName(String userName, final String password);
+	Register getPersonByUserName(String userName, final String password);
 
 
 }

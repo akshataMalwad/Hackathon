@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
-import com.hackathon.BankingManagement.Pojo.User;
+import com.hackathon.BankingManagement.Pojo.Register;
 import com.hackathon.BankingManagement.Pojo.UserMapper;
 
 @Component
@@ -22,7 +22,7 @@ public class LoginDao implements ILoginDao{
 	}
 
 	@Override
-	public User getPersonByUserName(String userName, final String password) {
+	public Register getPersonByUserName(String userName, final String password) {
 		return jdbcTemplate.queryForObject(SQL_FIND_USER, new Object[] { userName, password }, new UserMapper());
 	}
 

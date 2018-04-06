@@ -1,6 +1,6 @@
 package com.hackathon.BankingManagement.Pojo;
 
-public class User {
+public class Register {
 	
 	public int userId;
 	public String username;
@@ -11,10 +11,10 @@ public class User {
 	public String password;
 	public String contactNumber;
 	
-	public User() {
+	public Register() {
 		super();
 	}
-	public User(int userId, String fullName, String username,  String email, String status, String role, String password,
+	public Register(int userId, String fullName, String username,  String email, String status, String role, String password,
 			String contactNumber) {
 		super();
 		this.userId = userId;

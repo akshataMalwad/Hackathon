@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hackathon.BankingManagement.Dao.ILoginDao;
-import com.hackathon.BankingManagement.Pojo.User;
+import com.hackathon.BankingManagement.Pojo.Register;
 
 @CrossOrigin
 @RestController
@@ -21,17 +21,17 @@ public class BankingManagementController {
 	ILoginDao dao;
 	
 	@RequestMapping(value="/login", method = RequestMethod.POST, consumes = "application/json")
-	public ResponseEntity<User> login(@RequestBody User newCourse) {
+	public ResponseEntity<Register> login(@RequestBody Register newCourse) {
 		System.out.println("Inside Controller....");
 		
-		User user = dao.getPersonByUserName(newCourse.getUsername(), newCourse.getPassword());
+		Register user = dao.getPersonByUserName(newCourse.getUsername(), newCourse.getPassword());
 		System.out.println("\nUser data = "+user);
 
 		return new ResponseEntity<>(newCourse, HttpStatus.OK);
 	}
 
 	@RequestMapping(value="/register", method = RequestMethod.POST, consumes = "application/json")
-	public ResponseEntity<User> registerCustomer(@RequestBody User newCourse) {
+	public ResponseEntity<Register> registerCustomer(@RequestBody Register newCourse) {
 		System.out.println("Inside Controller....");
 		return new ResponseEntity<>(newCourse, HttpStatus.CREATED);
 	}
