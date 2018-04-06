@@ -3,6 +3,7 @@ package com.hackathon.BankingManagement.Pojo;
 public class User {
 	
 	public int userId;
+	public String username;
 	public String fullName;
 	public String email;
 	public String status;
@@ -10,13 +11,16 @@ public class User {
 	public String password;
 	public String contactNumber;
 	
-
-	public User(int userId, String fullName, String email, String status, String role, String password,
+	public User() {
+		super();
+	}
+	public User(int userId, String fullName, String username,  String email, String status, String role, String password,
 			String contactNumber) {
 		super();
 		this.userId = userId;
 		this.fullName = fullName;
 		this.email = email;
+		this.username = username;
 		this.status = status;
 		this.role = role;
 		this.password = password;
@@ -64,8 +68,13 @@ public class User {
 	public void setContactNumber(String contactNumber) {
 		this.contactNumber = contactNumber;
 	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-	
 	
 
 }
