@@ -18,6 +18,7 @@ public class UserMapper implements RowMapper<Register>{
 		user.setStatus(rs.getString("registrationStatus"));
 		user.setUserId(rs.getInt("adharNumber"));
 		user.setUsername(rs.getString("username"));
+		user.setStatus(rs.getString("registrationStatus"));
 		return user;
 	}
 
