@@ -20,5 +20,9 @@ public interface ILoanDao {
 
 	public int updateLoanStatus(Register regObj);
 
+	public int updateLoanStatus(String aadharNumber, String status);
+
+	public int updateRegitserStatus(String aadharNumber, String status);
+
 
 }

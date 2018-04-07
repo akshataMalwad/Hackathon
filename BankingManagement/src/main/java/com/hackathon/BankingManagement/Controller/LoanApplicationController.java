@@ -52,15 +52,25 @@ public class LoanApplicationController {
 	
 	@RequestMapping(value="/regPendingApprovalList", method = RequestMethod.GET, produces = "application/json")
 	public  ResponseEntity<List<Register>> pendingCustomerList()  {
-		System.out.println("Inside Controller....");
+		System.out.println("Inside regController....");
 		List<Register> pendingUserList=service.getRegisteredUserList();
 		System.out.println("got the list");
 				
 		return new ResponseEntity<List<Register>>(pendingUserList, HttpStatus.OK);
 	}
 
+	@RequestMapping(value="/loanPendingApprovalList", method = RequestMethod.GET, produces = "application/json")
+	public  ResponseEntity<List<Loan>> pendingLoanList()  {
+		System.out.println("Inside loanController....");
+		List<Loan> pendingLoanReqList=service.getPendgingLoanReqList();
+		System.out.println("got the list");
+				
+		return new ResponseEntity<List<Loan>>(pendingLoanReqList, HttpStatus.OK);
+		
+	}
 
-	@RequestMapping(value="/regApproval", method = RequestMethod.POST, consumes = "application/json")
+
+/*	@RequestMapping(value="/regApproval", method = RequestMethod.POST, consumes = "application/json")
 	public  ResponseEntity<String> approveRegisterCustomer(@RequestBody Register regObj)  {
 		System.out.println("Inside Controller....");
 		int count =  service.approveRegisterCustomer(regObj);
@@ -70,11 +80,31 @@ public class LoanApplicationController {
 		return new ResponseEntity<>("Approval Failed - Internal server issue.", HttpStatus.NOT_MODIFIED);
 	}
 
+*/	
+	@RequestMapping(value="/regApproval", method = RequestMethod.GET, produces = "application/json")
+	public  ResponseEntity<String> approveRegisterCustomer1(@RequestParam("aadharNumber") String aadharNumber, @RequestParam("status") String status)  {
+		System.out.println("Inside Controller....");
+		int count =  service.approveRegisterCustomer(aadharNumber, status);
+		if(count > 0){
+			return new ResponseEntity<>( HttpStatus.OK);
+		}
+		return new ResponseEntity<>("Approval Failed - Internal server issue.", HttpStatus.NOT_MODIFIED);
+	}
 	
-	@RequestMapping(value="/loanApproval", method = RequestMethod.POST, consumes = "application/json")
+/*	@RequestMapping(value="/loanApproval", method = RequestMethod.POST, consumes = "application/json")
 	public  ResponseEntity<String> approveLoan(@RequestBody Register regObj)  {
 		System.out.println("Inside Controller....");
 		int count =  service.approveLoan(regObj);
+		if(count > 0){
+			return new ResponseEntity<>( HttpStatus.OK);
+		}
+		return new ResponseEntity<>("Approval Failed - Internal server issue.", HttpStatus.NOT_MODIFIED);
+	}
+*/
+	@RequestMapping(value="/loanApproval", method = RequestMethod.GET, produces = "application/json")
+	public  ResponseEntity<String> approveLoan1(@RequestParam("aadharNumber") String aadharNumber, @RequestParam("status") String status)  {
+		System.out.println("Inside Controller....");
+		int count =  service.approveLoan(aadharNumber, status);
 		if(count > 0){
 			return new ResponseEntity<>( HttpStatus.OK);
 		}

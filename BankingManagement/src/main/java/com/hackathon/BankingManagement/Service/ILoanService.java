@@ -18,7 +18,11 @@ public interface ILoanService {
 
 	public int approveRegisterCustomer(Register regObj);
 
+	public int approveLoan(String aadharNumber, String status);
+
 	public int approveLoan(Register regObj);
+
+	public int approveRegisterCustomer(String aadharNumber, String status);
 
 
 }
