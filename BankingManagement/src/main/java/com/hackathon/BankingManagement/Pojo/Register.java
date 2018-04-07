@@ -2,7 +2,7 @@ package com.hackathon.BankingManagement.Pojo;
 
 public class Register {
 	
-	public int userId;
+	public int aadharNumber;
 	public String username;
 	public String fullName;
 	public String email;
@@ -14,10 +14,11 @@ public class Register {
 	public Register() {
 		super();
 	}
+	
 	public Register(int userId, String fullName, String username,  String email, String status, String role, String password,
 			String contactNumber) {
 		super();
-		this.userId = userId;
+		this.aadharNumber = userId;
 		this.fullName = fullName;
 		this.email = email;
 		this.username = username;
@@ -26,11 +27,11 @@ public class Register {
 		this.password = password;
 		this.contactNumber = contactNumber;
 	}
-	public int getUserId() {
-		return userId;
+	public int getAadharNumber() {
+		return aadharNumber;
 	}
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setAadharNumber(int aadharNumber) {
+		this.aadharNumber = aadharNumber;
 	}
 	public String getFullName() {
 		return fullName;

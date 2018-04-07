@@ -37,7 +37,9 @@ public class BankingManagementController {
 
 	@RequestMapping(value="/register", method = RequestMethod.POST, consumes = "application/json")
 	public ResponseEntity<Register> registerCustomer(@RequestBody Register user) {
-		System.out.println("Inside Controller....");
+		System.out.println("Inside RegisterController....");
+		System.out.println("full name="+user.getFullName());
+		System.out.println("contactNo="+user.getContactNumber());
 		user.setStatus("pending");
 		user.setRole("customer");
 		return new ResponseEntity<>(user, HttpStatus.CREATED);

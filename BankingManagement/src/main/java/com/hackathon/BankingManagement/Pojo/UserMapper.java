@@ -16,7 +16,7 @@ public class UserMapper implements RowMapper<Register>{
 		user.setPassword(rs.getString("pass"));
 		user.setRole(rs.getString("role"));
 		user.setStatus(rs.getString("registrationStatus"));
-		user.setUserId(rs.getInt("adharNumber"));
+		user.setAadharNumber(rs.getInt("aadharNumber"));
 		user.setUsername(rs.getString("username"));
 		user.setStatus(rs.getString("registrationStatus"));
 		return user;
