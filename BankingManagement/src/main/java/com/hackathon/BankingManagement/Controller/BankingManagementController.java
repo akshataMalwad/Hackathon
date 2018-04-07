@@ -60,14 +60,14 @@ public class BankingManagementController {
 	}
 */
 	@RequestMapping(value="/register", method = RequestMethod.POST, consumes = "application/json")
-	public ResponseEntity<Register> registerCustomer(@RequestBody Register newCourse) {
+	public ResponseEntity<String> registerCustomer(@RequestBody Register newCourse) {
 		System.out.println("Inside Controller....");
 		System.out.println(newCourse);
 		int result=service.registerUser(newCourse);
 		if(result==1)
-			return new ResponseEntity<>(HttpStatus.CREATED);
+			return new ResponseEntity<>( HttpStatus.CREATED);
 		else
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>("Please make sure you are not typing Aadhar duplicate.", HttpStatus.NOT_FOUND);
 
 	}
 
