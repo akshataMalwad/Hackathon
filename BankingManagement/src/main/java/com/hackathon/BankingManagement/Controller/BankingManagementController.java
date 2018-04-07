@@ -36,6 +36,7 @@ public class BankingManagementController {
 		user.setStatus("pending");
 		user.setRole("customer");
 		return new ResponseEntity<>(user, HttpStatus.CREATED);
+		
 	}
 
 	@RequestMapping(value="/login1", method = RequestMethod.POST, consumes = "application/json")
