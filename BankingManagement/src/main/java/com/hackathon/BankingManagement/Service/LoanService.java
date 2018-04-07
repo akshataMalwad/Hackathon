@@ -34,6 +34,12 @@ public class LoanService implements ILoanService {
 
 	@Override
 	public Loan getLoanByAadharId(String aadharId) {
+		try{
+			Loan user = dao.getLoanByAadharId(aadharId);
+			return user;
+		} catch (DataAccessException ex) {
+			System.out.println("Error ="+ex.toString());	
+		}
 		return null;
 	}
 	

@@ -27,16 +27,19 @@ public class LoanApplicationController {
 	@Autowired
 	ILoanService service;
 	
-/*	@RequestMapping(value="/applyLoan", method = RequestMethod.POST, consumes = "application/json")
-	public ResponseEntity<Loan> applyLoan(@RequestBody Loan loanObj) {
-		System.out.println("Inside LoanController....");
-		System.out.println("tenure ="+loanObj.getTenure());
-		System.out.println("aadhar Number ="+loanObj.getAadharNumber());
-		System.out.println("loanAmount ="+loanObj.getLoanAmount());
-		loanObj.setLoanStatus("Pending");
-		return new ResponseEntity<>(loanObj, HttpStatus.CREATED);
+	@RequestMapping(value="/loanDetails", method = RequestMethod.POST, consumes = "application/json")
+	public ResponseEntity<Loan> loanDetails(@RequestBody Register user) {
+		System.out.println("Inside Controller....");
+		Loan result = service.getLoanByAadharId(user.getAadharNumber());
+		if(result != null) {
+			System.out.println("Inside Controller....22");
+			return new ResponseEntity<>(result, HttpStatus.OK);
+		}else {
+			System.out.println("Inside Controller....11");
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
 	}
-*/
+
 	@RequestMapping(value="/applyLoan", method = RequestMethod.POST, consumes = "application/json")
 	public ResponseEntity<String> applyLoan(@RequestBody Loan loanObj) {
 		System.out.println("Inside LoanController....");
@@ -56,15 +59,6 @@ public class LoanApplicationController {
 		return new ResponseEntity<List<Register>>(pendingUserList, HttpStatus.OK);
 	}
 
-	@RequestMapping(value="/getLoanPendingApprovalList", method = RequestMethod.GET, produces = "application/json")
-	public  ResponseEntity<List<Loan>> pendingLoanList()  {
-		System.out.println("Inside Controller....");
-		List<Loan> pendingLoanReqList=service.getPendgingLoanReqList();
-		System.out.println("got the list");
-				
-		return new ResponseEntity<List<Loan>>(pendingLoanReqList, HttpStatus.OK);
-		
-	}
 
 	@RequestMapping(value="/regApproval", method = RequestMethod.POST, consumes = "application/json")
 	public  ResponseEntity<String> approveRegisterCustomer(@RequestBody Register regObj)  {
