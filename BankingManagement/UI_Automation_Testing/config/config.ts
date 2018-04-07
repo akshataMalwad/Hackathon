@@ -9,7 +9,7 @@ export const config: Config = {
 
     SELENIUM_PROMISE_MANAGER: false,
 
-    baseUrl: "http://www.google.com",
+    // baseUrl: "http://127.0.0.1:8080/",
 
     capabilities: {
         browserName: "chrome",

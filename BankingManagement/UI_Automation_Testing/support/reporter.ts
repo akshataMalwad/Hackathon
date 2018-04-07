@@ -11,6 +11,7 @@ const cucumberReporterOptions = {
     output: htmlReports + "/cucumber_reporter.html",
     reportSuiteAsScenarios: true,
     theme: "bootstrap",
+    name: "Hackathon UI Testing Report"
 };
 
 export class Reporter {
