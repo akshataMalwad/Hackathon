@@ -11,8 +11,13 @@ public class UserMapper implements RowMapper<Register>{
 	public Register mapRow(ResultSet rs, int arg1) throws SQLException {
 		Register user = new Register();
 		user.setContactNumber(rs.getString("contactNumber"));
-		user.setFullName("fullname");
-		user.setEmail("email");
+		user.setFullName(rs.getString("fullname"));
+		user.setEmail(rs.getString("email"));
+		user.setPassword(rs.getString("pass"));
+		user.setRole(rs.getString("role"));
+		user.setStatus(rs.getString("registrationStatus"));
+		user.setUserId(rs.getInt("adharNumber"));
+		user.setUsername(rs.getString("username"));
 		return user;
 	}
 

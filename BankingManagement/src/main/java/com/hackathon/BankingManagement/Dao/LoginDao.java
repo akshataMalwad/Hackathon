@@ -14,7 +14,7 @@ public class LoginDao implements ILoginDao{
 
 	JdbcTemplate jdbcTemplate;
 	
-	private final String SQL_FIND_USER = "select * from user where userName = ? and password = ?";
+	private final String SQL_FIND_USER = "select * from register where userName = ? and pass = ?";
 
 	@Autowired
 	public LoginDao(DataSource dataSource) {
