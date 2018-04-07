@@ -12,26 +12,53 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.hackathon.BankingManagement.Dao.ILoginDao;
 import com.hackathon.BankingManagement.Pojo.Register;
+import com.hackathon.BankingManagement.Service.ILoginService;
 
 @CrossOrigin
 @RestController
 public class BankingManagementController {
 	
 	@Autowired
-	ILoginDao dao;
+	ILoginService service;
+	
 	
 	@RequestMapping(value="/login", method = RequestMethod.POST, consumes = "application/json")
-	public ResponseEntity<Register> login(@RequestBody Register newCourse) {
+	public ResponseEntity<Register> login(@RequestBody Register user) {
 		System.out.println("Inside Controller....");
-		
-		Register user = dao.getPersonByUserName(newCourse.getUsername(), newCourse.getPassword());
-		System.out.println("\nUser data = "+user);
-
-		return new ResponseEntity<>(newCourse, HttpStatus.OK);
+		Register result = service.getPersonByUserName(user.getUsername(), user.getPassword());
+		if(result != null) {
+			System.out.println("Inside Controller....22");
+			return new ResponseEntity<>(result, HttpStatus.OK);
+		}else {
+			System.out.println("Inside Controller....11");
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
 	}
 
 	@RequestMapping(value="/register", method = RequestMethod.POST, consumes = "application/json")
-	public ResponseEntity<Register> registerCustomer(@RequestBody Register newCourse) {
+	public ResponseEntity<Register> registerCustomer(@RequestBody Register user) {
+		System.out.println("Inside Controller....");
+		user.setStatus("pending");
+		user.setRole("customer");
+		return new ResponseEntity<>(user, HttpStatus.CREATED);
+		
+	}
+
+	@RequestMapping(value="/login1", method = RequestMethod.POST, consumes = "application/json")
+	public ResponseEntity<Register> login1(@RequestBody Register newCourse) {
+		System.out.println("Inside Controller....");
+		
+		Register user = service.getPersonByUserName(newCourse.getUsername(), newCourse.getPassword());
+		Register result = service.getPersonByUserName(user.getUsername(), user.getPassword());
+		if(result != null) {
+			System.out.println("\nUser data = "+user.toString());
+			return new ResponseEntity<>(result, HttpStatus.OK);
+		}
+		return new ResponseEntity<>(user, HttpStatus.NOT_FOUND);
+	}
+
+	@RequestMapping(value="/register1", method = RequestMethod.POST, consumes = "application/json")
+	public ResponseEntity<Register> registerCustomer1(@RequestBody Register newCourse) {
 		System.out.println("Inside Controller....");
 		return new ResponseEntity<>(newCourse, HttpStatus.CREATED);
 	}
