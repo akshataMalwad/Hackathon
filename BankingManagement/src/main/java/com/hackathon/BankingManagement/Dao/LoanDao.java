@@ -41,7 +41,7 @@ public class LoanDao implements ILoanDao{
 		loanDetailsJson.setLoanStatus("pending");
 		System.out.println("data ="+loanDetailsJson.toString());
 		int count = jdbcTemplate.update(SQL_INSERT_LOAN, new Object[] {
-				loanDetailsJson.getTenure(), loanDetailsJson.getLoanAmount(),loanDetailsJson.getAadharNumber(), loanDetailsJson.getLoanStatus()});
+				loanDetailsJson.getAadharNumber(), loanDetailsJson.getTenure(),loanDetailsJson.getLoanAmount(), loanDetailsJson.getLoanStatus()});
 		if(count > 0 ){
 			return loanDetailsJson;
 		}
@@ -82,5 +82,22 @@ public class LoanDao implements ILoanDao{
 						regObj.getRegistrationStatus(), regObj.getAadharNumber() });
 		return count;
 	}
+
+	@Override
+	public int updateLoanStatus(String aadharNumber, String status) {
+		int count = jdbcTemplate.update(
+				"UPDATE loan set loanStatus = ? where aadharNumber = ?", new Object[] {
+						status, aadharNumber });
+		return count;
+	}
+
+	@Override
+	public int updateRegitserStatus(String aadharNumber, String status) {
+		int count = jdbcTemplate.update(
+				"UPDATE register set registrationStatus = ? where aadharNumber = ?", new Object[] {
+						status, aadharNumber });
+		return count;
+	}
+
 
 }

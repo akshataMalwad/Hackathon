@@ -88,5 +88,33 @@ public class LoanService implements ILoanService {
 		return 0;
 	}
 
+	@Override
+	public int approveLoan(String aadharNumber, String status) {
+		try{
+			int count = dao.updateLoanStatus(aadharNumber, status);
+			if(count > 0)
+				return count;
+			else 
+				return 0;
+		} catch (DataAccessException ex) {
+			System.out.println("Error ="+ex.toString());	
+		}
+		return 0;
+	}
+
+	@Override
+	public int approveRegisterCustomer(String aadharNumber, String status) {
+		try{
+			int count = dao.updateRegitserStatus(aadharNumber, status);
+			if(count > 0)
+				return count;
+			else 
+				return 0;
+		} catch (DataAccessException ex) {
+			System.out.println("Error ="+ex.toString());	
+		}
+		return 0;
+	}
+
 
 }
