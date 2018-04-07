@@ -25,6 +25,7 @@ export const config: Config = {
     onPrepare: () => {
         browser.ignoreSynchronization = true;
         browser.manage().window().maximize();
+        browser.manage().timeouts().implicitlyWait(2000);
         Reporter.createDirectory(jsonReports);
     },
 

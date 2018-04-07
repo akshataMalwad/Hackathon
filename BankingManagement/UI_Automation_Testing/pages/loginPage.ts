@@ -1,4 +1,4 @@
-import { $, ElementFinder, element, By, promise } from "protractor";
+import { $, ElementFinder, element, By, promise, browser, ExpectedConditions, protractor } from "protractor";
 
 export class LoginPage {
     private role: ElementFinder;
@@ -8,6 +8,7 @@ export class LoginPage {
     private password: ElementFinder;
     private loginButton: ElementFinder;
     private signUp: ElementFinder;
+    private emiCalculatorLink: ElementFinder;
 
     constructor() {
         this.role = element(By.id('role'));
@@ -17,6 +18,7 @@ export class LoginPage {
         this.password = $("input[id='password']");
         this.loginButton = $("[id='login']");
         this.signUp = element(By.linkText('Create an Account'));
+        this.emiCalculatorLink = element(By.linkText('EMI Calculator'));
     }
     
     public login(role, uName, pwd): promise.Promise<any> {
@@ -33,7 +35,7 @@ export class LoginPage {
                     }
                 })
                 .then(() => {
-                    return this.loginButton.click(); 
+                    return this.loginButton.click();
                 });
             });
         });       
@@ -42,4 +44,8 @@ export class LoginPage {
     public goToSignUp(): promise.Promise<any> {
         return this.signUp.click();    
     }   
+
+    get getEmiCalLink(): ElementFinder {
+        return this.emiCalculatorLink;
+    }
 }

@@ -1,8 +1,8 @@
 {
   "name": "protractor-typescript-cucumber",
   "version": "3.0.0",
-  "license": "MIT",
-  "description": "To demostrate protractor cucumber tests for angular/non angular apps with allure report framework",
+  "license": "test",
+  "description": "HCL Hackathon",
   "homepage": "https://github.com/igniteram/protractor-cucumber-typescript",
   "keywords": [
     "protractor",
@@ -43,5 +43,5 @@
     "ts-node": "^3.3.0",
     "typescript": "^2.5.3"
   },
-  "repository": "https://github.com/igniteram/protractor-cucumber-typescript"
+  "repository": "https://github.com/akshataMalwad/Hackathon.git"
 }
