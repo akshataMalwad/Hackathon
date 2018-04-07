@@ -5,7 +5,7 @@ public class Loan {
 	public int loanId;
 	public String aadharNumber;
 	public String loanStatus;
-	public float loanamount;
+	public float loanAmount;
 	public int tenure;
 	
 	
@@ -18,7 +18,7 @@ public class Loan {
 		this.loanId = loanId;
 		this.aadharNumber = aadharNumber;
 		this.loanStatus = status;
-		this.loanamount = loanamount;
+		this.loanAmount = loanamount;
 		this.tenure = tenure;
 	}
 	
@@ -34,11 +34,11 @@ public class Loan {
 	public void setAadharNumber(String adharNumber) {
 		this.aadharNumber = adharNumber;
 	}
-	public float getLoanamount() {
-		return loanamount;
+	public float getLoanAmount() {
+		return loanAmount;
 	}
 	public void setLoanamount(float loanamount) {
-		this.loanamount = loanamount;
+		this.loanAmount = loanamount;
 	}
 	public int getTenure() {
 		return tenure;
@@ -55,6 +55,13 @@ public class Loan {
 		this.loanStatus = loanStatus;
 	}
 
+	@Override
+	public String toString() {
+		return "Loan [loanId=" + loanId + ", aadharNumber=" + aadharNumber + ", loanStatus=" + loanStatus
+				+ ", loanAmount=" + loanAmount + ", tenure=" + tenure + "]";
+	}
+
+	
 	
 	
 }
