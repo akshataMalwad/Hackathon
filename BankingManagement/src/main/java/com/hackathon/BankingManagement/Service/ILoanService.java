@@ -11,5 +11,4 @@ public interface ILoanService {
 	
 	public Loan getLoanByAadharId(String aadharId);
 
-
 }

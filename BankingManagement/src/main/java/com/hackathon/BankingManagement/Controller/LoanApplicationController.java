@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hackathon.BankingManagement.Dao.ILoginDao;
+import com.hackathon.BankingManagement.Pojo.Loan;
 import com.hackathon.BankingManagement.Pojo.Register;
 import com.hackathon.BankingManagement.Service.ILoanService;
 import com.hackathon.BankingManagement.Service.ILoginService;
@@ -24,7 +25,6 @@ public class LoanApplicationController {
 /*	@Autowired
 	ILoanService service;
 	
-	
 	@RequestMapping(value="/applyLoan", method = RequestMethod.POST, consumes = "application/json")
 	public ResponseEntity<Register> applyLoan(Map<String, String> loanDetailsJson) {
 		System.out.println("Inside LoanController....");
@@ -32,11 +32,10 @@ public class LoanApplicationController {
 	}
 
 	@RequestMapping(value="/applyLoan1", method = RequestMethod.POST, consumes = "application/json")
-	public ResponseEntity<Register> applyLoan1(@RequestBody Map<String, String> jsonData) {
+	public ResponseEntity<Loan> applyLoan1(@RequestBody Map<String, String> jsonData) {
 		System.out.println("Inside LoanController....");
-		//service.insertLoan(loanDetailsJson);
-		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-}
-*/
-	
+		Loan loan = service.insertLoan(jsonData);
+		return new ResponseEntity<>(loan, HttpStatus.NOT_FOUND);
+	}
+*/	
 }

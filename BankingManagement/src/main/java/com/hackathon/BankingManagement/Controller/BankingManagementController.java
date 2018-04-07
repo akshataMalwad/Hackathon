@@ -17,11 +17,11 @@ import com.hackathon.BankingManagement.Service.ILoginService;
 @CrossOrigin
 @RestController
 public class BankingManagementController {
-	
+
 	@Autowired
 	ILoginService service;
-	
-	
+
+
 	@RequestMapping(value="/login", method = RequestMethod.POST, consumes = "application/json")
 	public ResponseEntity<Register> login(@RequestBody Register user) {
 		System.out.println("Inside Controller....");
@@ -35,21 +35,21 @@ public class BankingManagementController {
 		}
 	}
 
-	@RequestMapping(value="/register", method = RequestMethod.POST, consumes = "application/json")
-	public ResponseEntity<Register> registerCustomer(@RequestBody Register user) {
+	@RequestMapping(value="/register1", method = RequestMethod.POST, consumes = "application/json")
+	public ResponseEntity<Register> registerCustomer1(@RequestBody Register user) {
 		System.out.println("Inside RegisterController....");
 		System.out.println("full name="+user.getFullName());
 		System.out.println("contactNo="+user.getContactNumber());
 		user.setStatus("pending");
 		user.setRole("customer");
 		return new ResponseEntity<>(user, HttpStatus.CREATED);
-		
+
 	}
 
 	@RequestMapping(value="/login1", method = RequestMethod.POST, consumes = "application/json")
 	public ResponseEntity<Register> login1(@RequestBody Register newCourse) {
 		System.out.println("Inside Controller....");
-		
+
 		Register user = service.getPersonByUserName(newCourse.getUsername(), newCourse.getPassword());
 		Register result = service.getPersonByUserName(user.getUsername(), user.getPassword());
 		if(result != null) {
@@ -59,10 +59,17 @@ public class BankingManagementController {
 		return new ResponseEntity<>(user, HttpStatus.NOT_FOUND);
 	}
 
-	@RequestMapping(value="/register1", method = RequestMethod.POST, consumes = "application/json")
-	public ResponseEntity<Register> registerCustomer1(@RequestBody Register newCourse) {
+	@RequestMapping(value="/register", method = RequestMethod.POST, consumes = "application/json")
+	public ResponseEntity<Register> registerCustomer(@RequestBody Register newCourse) {
 		System.out.println("Inside Controller....");
-		return new ResponseEntity<>(newCourse, HttpStatus.CREATED);
+		System.out.println(newCourse);
+		int result=service.registerUser(newCourse);
+		if(result==1)
+			return new ResponseEntity<>(HttpStatus.CREATED);
+		else
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
+
 	}
-	
+
 }

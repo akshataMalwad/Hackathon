@@ -11,8 +11,9 @@ public class LoanMapper implements RowMapper<Loan>{
 	public Loan mapRow(ResultSet rs, int arg1) throws SQLException {
 		Loan loan = new Loan();
 		loan.setAadharNumber(rs.getString("aadharNumber"));		
-		loan.setLoanamount(rs.getFloat("loanamount"));
-		loan.setLoanamount(rs.getFloat("tenure"));
+		loan.setLoanStatus(rs.getString("loanStatus"));		
+		loan.setLoanamount(rs.getFloat("loanAmount"));
+		loan.setTenure(rs.getInt("tenure"));
 		loan.setLoanId(rs.getInt("loanId"));
 		return loan;
 	}

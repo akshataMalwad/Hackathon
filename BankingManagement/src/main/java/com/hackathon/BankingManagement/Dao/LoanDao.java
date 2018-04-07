@@ -30,7 +30,11 @@ public class LoanDao implements ILoanDao{
 
 	@Override
 	public Loan insertLoan(Map<String, String> loanDetailsJson) {
-		return null;
+		
+		 int count = jdbcTemplate.update(
+				    "INSERT INTO loan(loanId,tenure, loanAmount, aadharNumber)VALUES(?,?,?,?)", new Object[] {
+				    		loanDetailsJson.get("loanId"), loanDetailsJson.get("tenure"), loanDetailsJson.get("loanAmount"),loanDetailsJson.get("aadharNumber") });
+		 return null;
 	}
 	
 }

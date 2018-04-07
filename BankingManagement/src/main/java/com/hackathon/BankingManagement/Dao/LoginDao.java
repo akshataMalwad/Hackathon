@@ -15,6 +15,7 @@ public class LoginDao implements ILoginDao{
 	JdbcTemplate jdbcTemplate;
 	
 	private final String SQL_FIND_USER = "select * from register where userName = ? and pass = ?";
+	private final String SQL_REGISTER_USER = "INSERT into register("+"aadharNumber,"+"userName,"+"fullName,"+"email,"+"registrationStatus,"+"role,"+"pass,"+"contactNumber) "+"values(?,?,?,?,?,?,?,?)";
 
 	@Autowired
 	public LoginDao(DataSource dataSource) {
@@ -25,6 +26,18 @@ public class LoginDao implements ILoginDao{
 	public Register getPersonByUserName(String userName, final String password) {
 		return jdbcTemplate.queryForObject(SQL_FIND_USER, new Object[] { userName, password }, new UserMapper());
 	}
+
+	@Override
+	public int registerUser(Register register) {
+		// TODO Auto-generated method stub
+		register.setRole("customer");
+		register.setStatus("pending");
+		
+		return jdbcTemplate.update(SQL_REGISTER_USER, new Object[] { register.getAadharNumber(), register.getUsername(),register.getFullName(),register.getEmail(),register.getStatus(),register.getRole(),register.getPassword(),register.getContactNumber()});
+		
+		 
+	}
+
 
 	
 }

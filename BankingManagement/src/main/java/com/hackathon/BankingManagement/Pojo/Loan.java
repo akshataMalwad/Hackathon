@@ -4,21 +4,20 @@ public class Loan {
 
 	public int loanId;
 	public String aadharNumber;
-	public String fullName;
+	public String loanStatus;
 	public float loanamount;
 	public int tenure;
-	
 	
 	
 	public Loan() {
 		super();
 	}
 
-	public Loan(int loanId, String aadharNumber, String fullName, float loanamount, int tenure) {
+	public Loan(int loanId, String aadharNumber,String status,  float loanamount, int tenure) {
 		super();
 		this.loanId = loanId;
 		this.aadharNumber = aadharNumber;
-		this.fullName = fullName;
+		this.loanStatus = status;
 		this.loanamount = loanamount;
 		this.tenure = tenure;
 	}
@@ -35,12 +34,6 @@ public class Loan {
 	public void setAadharNumber(String adharNumber) {
 		this.aadharNumber = adharNumber;
 	}
-	public String getFullName() {
-		return fullName;
-	}
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
-	}
 	public float getLoanamount() {
 		return loanamount;
 	}
@@ -54,5 +47,14 @@ public class Loan {
 		this.tenure = tenure;
 	}
 
+	public String getLoanStatus() {
+		return loanStatus;
+	}
+
+	public void setLoanStatus(String loanStatus) {
+		this.loanStatus = loanStatus;
+	}
+
+	
 	
 }
