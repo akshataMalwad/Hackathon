@@ -20,6 +20,6 @@ export class SearchPageObject {
     }
     
     public goToSignUp(): void {
-        this.signUp.click();    
+        this.signUp.click();
     }   
 }
