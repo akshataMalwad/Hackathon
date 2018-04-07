@@ -6,9 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 
 import com.hackathon.BankingManagement.Dao.ILoanDao;
-import com.hackathon.BankingManagement.Dao.ILoginDao;
 import com.hackathon.BankingManagement.Pojo.Loan;
-import com.hackathon.BankingManagement.Pojo.Register;
 
 public class LoanService implements ILoanService {
 
