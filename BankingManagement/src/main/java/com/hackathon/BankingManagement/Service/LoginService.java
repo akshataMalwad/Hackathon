@@ -23,5 +23,21 @@ public class LoginService implements ILoginService {
 		}
 		return null;
 	}
+	
+	@Override
+	public int registerUser(Register register) {
+		// TODO Auto-generated method stub
+		int result=0;
+		try{
+			 result = dao.registerUser(register);
+			return result;
+		} catch (DataAccessException ex) {
+			System.out.println("Error ="+ex.toString());	
+		}
+		return result;
+		
+	}
+
+
 
 }
