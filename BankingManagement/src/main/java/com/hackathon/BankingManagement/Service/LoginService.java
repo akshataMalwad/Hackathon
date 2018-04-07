@@ -1,6 +1,7 @@
 package com.hackathon.BankingManagement.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.hackathon.BankingManagement.Dao.ILoginDao;
@@ -14,8 +15,13 @@ public class LoginService implements ILoginService {
 	
 	@Override
 	public Register getPersonByUserName(String userName, String password) {
-		Register user = dao.getPersonByUserName(userName, password);
-		return user;
+		try{
+			Register user = dao.getPersonByUserName(userName, password);
+			return user;
+		} catch (DataAccessException ex) {
+			System.out.println("Error ="+ex.toString());	
+		}
+		return null;
 	}
 
 }
