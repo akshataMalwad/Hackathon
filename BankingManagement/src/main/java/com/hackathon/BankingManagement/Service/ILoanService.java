@@ -13,6 +13,12 @@ public interface ILoanService {
 	public Loan getLoanByAadharId(String aadharId);
 	
 	public List<Register> getRegisteredUserList();
+	
+	public List<Loan> getPendgingLoanReqList();
+
+	public int approveRegisterCustomer(Register regObj);
+
+	public int approveLoan(Register regObj);
 
 
 }

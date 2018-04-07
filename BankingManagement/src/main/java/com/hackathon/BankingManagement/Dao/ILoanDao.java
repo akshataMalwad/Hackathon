@@ -13,6 +13,12 @@ public interface ILoanDao {
 	public Loan insertLoan(Loan loanDetailsJson);
 	
 	public List<Register> getRegisteredUserList();
+	
+	public List<Loan> getPendingLoanList();
+
+	public int updateRegitserStatus(Register regObj);
+
+	public int updateLoanStatus(Register regObj);
 
 
 }

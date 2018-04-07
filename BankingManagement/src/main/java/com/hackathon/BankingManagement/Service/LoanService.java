@@ -46,4 +46,41 @@ public class LoanService implements ILoanService {
 	}
 
 
+	@Override
+	public List<Loan> getPendgingLoanReqList() {
+		// TODO Auto-generated method stub
+		List<Loan> pendingLoanReqList=dao.getPendingLoanList();
+		System.out.println("returning from service");
+		return pendingLoanReqList;
+	}
+
+	@Override
+	public int approveRegisterCustomer(Register regObj) {
+		try{
+			int count = dao.updateRegitserStatus(regObj);
+			if(count > 0)
+				return count;
+			else 
+				return 0;
+		} catch (DataAccessException ex) {
+			System.out.println("Error ="+ex.toString());	
+		}
+		return 0;
+	}
+
+	@Override
+	public int approveLoan(Register regObj) {
+		try{
+			int count = dao.updateLoanStatus(regObj);
+			if(count > 0)
+				return count;
+			else 
+				return 0;
+		} catch (DataAccessException ex) {
+			System.out.println("Error ="+ex.toString());	
+		}
+		return 0;
+	}
+
+
 }
