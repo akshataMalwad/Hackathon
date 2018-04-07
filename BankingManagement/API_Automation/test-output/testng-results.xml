@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="5061" started-at="2018-04-07T12:12:18Z" finished-at="2018-04-07T12:12:23Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="5061" started-at="2018-04-07T12:12:18Z" finished-at="2018-04-07T12:12:23Z">
+      <class name="com.hackathon.api.ApproveCustomerSignRequest">
+        <test-method status="PASS" signature="verifyApiForUploadingDetailsOfLoanOnApplyLoanScreen()[pri:0, instance:com.hackathon.api.ApproveCustomerSignRequest@29ee9faa]" name="verifyApiForUploadingDetailsOfLoanOnApplyLoanScreen" duration-ms="5033" started-at="2018-04-07T12:12:18Z" finished-at="2018-04-07T12:12:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyApiForUploadingDetailsOfLoanOnApplyLoanScreen -->
+      </class> <!-- com.hackathon.api.ApproveCustomerSignRequest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
