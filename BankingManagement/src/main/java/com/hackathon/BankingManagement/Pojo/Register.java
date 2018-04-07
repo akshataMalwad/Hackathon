@@ -1,32 +1,37 @@
 package com.hackathon.BankingManagement.Pojo;
 
-public class User {
+public class Register {
 	
-	public int userId;
+	public String aadharNumber;
+	public String userName;
 	public String fullName;
 	public String email;
-	public String status;
+	public String registrationStatus;
 	public String role;
 	public String password;
 	public String contactNumber;
 	
-
-	public User(int userId, String fullName, String email, String status, String role, String password,
+	public Register() {
+		super();
+	}
+	
+	public Register(String userId, String fullName, String username,  String email, String status, String role, String password,
 			String contactNumber) {
 		super();
-		this.userId = userId;
+		this.aadharNumber = userId;
 		this.fullName = fullName;
 		this.email = email;
-		this.status = status;
+		this.userName = username;
+		this.registrationStatus = status;
 		this.role = role;
 		this.password = password;
 		this.contactNumber = contactNumber;
 	}
-	public int getUserId() {
-		return userId;
+	public String getAadharNumber() {
+		return aadharNumber;
 	}
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setAadharNumber(String aadharNumber) {
+		this.aadharNumber = aadharNumber;
 	}
 	public String getFullName() {
 		return fullName;
@@ -40,12 +45,23 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getStatus() {
-		return status;
+	
+	public String getUserName() {
+		return userName;
 	}
-	public void setStatus(String status) {
-		this.status = status;
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
+
+	public String getRegistrationStatus() {
+		return registrationStatus;
+	}
+
+	public void setRegistrationStatus(String registrationStatus) {
+		this.registrationStatus = registrationStatus;
+	}
+
 	public String getRole() {
 		return role;
 	}
@@ -64,8 +80,6 @@ public class User {
 	public void setContactNumber(String contactNumber) {
 		this.contactNumber = contactNumber;
 	}
-
-	
 	
 
 }
