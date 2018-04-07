@@ -25,7 +25,7 @@ public class BankingManagementController {
 	@RequestMapping(value="/login", method = RequestMethod.POST, consumes = "application/json")
 	public ResponseEntity<Register> login(@RequestBody Register user) {
 		System.out.println("Inside Controller....");
-		Register result = service.getPersonByUserName(user.getUsername(), user.getPassword());
+		Register result = service.getPersonByUserName(user.getUserName(), user.getPassword());
 		if(result != null) {
 			System.out.println("Inside Controller....22");
 			return new ResponseEntity<>(result, HttpStatus.OK);
@@ -40,13 +40,13 @@ public class BankingManagementController {
 		System.out.println("Inside RegisterController....");
 		System.out.println("full name="+user.getFullName());
 		System.out.println("contactNo="+user.getContactNumber());
-		user.setStatus("pending");
+		user.setRegistrationStatus(("pending"));
 		user.setRole("customer");
 		return new ResponseEntity<>(user, HttpStatus.CREATED);
 
 	}
 
-	@RequestMapping(value="/login1", method = RequestMethod.POST, consumes = "application/json")
+/*	@RequestMapping(value="/login1", method = RequestMethod.POST, consumes = "application/json")
 	public ResponseEntity<Register> login1(@RequestBody Register newCourse) {
 		System.out.println("Inside Controller....");
 
@@ -58,7 +58,7 @@ public class BankingManagementController {
 		}
 		return new ResponseEntity<>(user, HttpStatus.NOT_FOUND);
 	}
-
+*/
 	@RequestMapping(value="/register", method = RequestMethod.POST, consumes = "application/json")
 	public ResponseEntity<Register> registerCustomer(@RequestBody Register newCourse) {
 		System.out.println("Inside Controller....");
@@ -68,7 +68,6 @@ public class BankingManagementController {
 			return new ResponseEntity<>(HttpStatus.CREATED);
 		else
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-
 
 	}
 

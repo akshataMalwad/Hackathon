@@ -31,9 +31,9 @@ public class LoginDao implements ILoginDao{
 	public int registerUser(Register register) {
 		// TODO Auto-generated method stub
 		register.setRole("customer");
-		register.setStatus("pending");
+		register.setRegistrationStatus("pending");
 		
-		return jdbcTemplate.update(SQL_REGISTER_USER, new Object[] { register.getAadharNumber(), register.getUsername(),register.getFullName(),register.getEmail(),register.getStatus(),register.getRole(),register.getPassword(),register.getContactNumber()});
+		return jdbcTemplate.update(SQL_REGISTER_USER, new Object[] { register.getAadharNumber(), register.getUserName(),register.getFullName(),register.getEmail(),register.getRegistrationStatus(),register.getRole(),register.getPassword(),register.getContactNumber()});
 		
 		 
 	}
