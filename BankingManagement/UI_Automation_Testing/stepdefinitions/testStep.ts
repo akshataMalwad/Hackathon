@@ -5,19 +5,9 @@ import {AdminPage} from "../pages/adminPage";
 import {expect} from "chai";
 const { When, Then, And } = require("cucumber");
 
-// let chai = require('chai');
-// let expect = chai.expect;
 const loginPage: LoginPage = new LoginPage();
 const customePage: CustomerPage = new CustomerPage();
 const adminPage: AdminPage = new AdminPage();
-
-/*When(/^I type "(.*?)"$/, async (text) => {
-    await search.searchTextBox.sendKeys(text);
-});
-
-Then(/^I click on search button$/, async () => {
-    await browser.actions().sendKeys(protractor.Key.ENTER).perform();
-});*/
 
 When(/^I am on Hackathon page$/, async() => {
     await browser.get('http://127.0.0.1:8080/');
@@ -56,4 +46,19 @@ Then(/^I click Create New Account$/, function(): any {
 
 Then(/^I should see Google logo$/, async() => {
    await browser.sleep(5000);
+});
+
+When(/^I click SignOut$/, function(): any {
+    let signOut: ElementFinder = element(By.linkText('Sign Out'));
+    let title: ElementFinder = element(By.cssContainingText('h2', 'Log in'));
+    return signOut.click().then(() => {
+        return browser.wait(protractor.ExpectedConditions.visibilityOf(title),10000);
+    });
+});
+
+Then(/^I should see the Login page$/, function(): any {
+    let title: ElementFinder = element(By.cssContainingText('h2', 'Log in'));
+    return title.isPresent().then((presence) => {
+        return expect(presence).to.be.true;
+    });
 });
